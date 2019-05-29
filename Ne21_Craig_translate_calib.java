@@ -21,7 +21,7 @@ public class Ne21_Craig_translate_calib {
         
          double gain[] = new double[4];
          double offset[] = new double[4];
-         double e_cor[] = new double[4];
+         int e_cor[] = new int[4];
          int energy, no;
          
          //Transport data from file to array
@@ -35,19 +35,19 @@ public class Ne21_Craig_translate_calib {
             energy = ADC_fileScan.nextInt();
             no = ADC_fileScan.nextInt();
             if(no == 1) {
-                e_cor[0] = gain[0]*energy + offset[0];
+                e_cor[0] = (int)Math.round(gain[0]*energy + offset[0]);
                 outputfile.print(no+"\t"+e_cor[0]+"\n");
                 //System.out.println(no+"\t"+e_cor[0]);
              } else if (no == 2) {
-                e_cor[1] = gain[1]*energy + offset[1];
+                e_cor[1] = (int)Math.round(gain[1]*energy + offset[1]);
                 outputfile.print(no+"\t"+e_cor[1]+"\n");
                 //System.out.println(no+"\t"+e_cor[1]);
             } else if (no == 3) {
-                e_cor[2] = gain[2]*energy + offset[2];
+                e_cor[2] = (int)Math.round(gain[2]*energy + offset[2]);
                 outputfile.print(no+"\t"+e_cor[2]+"\n");
                 //System.out.println(no+"\t"+e_cor[2]);
             } else {
-                e_cor[3] = gain[3]*energy + offset[3];
+                e_cor[3] = (int)Math.round(gain[3]*energy + offset[3]);
                 outputfile.print(no+"\t"+e_cor[3]+"\n");
                 //System.out.println(no+"\t"+e_cor[3]);
             }
